@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            margin: auto;
+            box-shadow:10px 10px 10px 10px #888888;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="https://tse4.mm.bing.net/th?id=OIP.2ipyciZc3yjfiBePI2p0QAHaF6&pid=Api&P=0" alt="">
+        <button id="like">Likes: <span id="LikeCount">0</span> </button>
+        
+         <button id="dislike">Dislike:  <span id="disLikesCount">0</span></button>
+    </div>
+</body>
+<script>
+    let likesCount = localStorage.getItem('likes') || 0;
+    let disLikesCount = localStorage.getItem('dislikes') || 0;
+
+    document.getElementById('LikeCount').textContent=likesCount;
+    document.getElementById('disLikesCount').textContent=disLikesCount;
+
+    
+    let like = document.getElementById('like');
+    like.addEventListener('click',function(){
+        likesCount++;
+        document.getElementById('LikeCount').textContent=likesCount;
+        localStorage.setItem('likes', likesCount)
+    })
+
+    let dislike = document.getElementById('dislike');
+    dislike.addEventListener('click',function(){
+        disLikesCount++;
+        document.getElementById('disLikesCount').textContent=disLikesCount;
+        localStorage.setItem('dislikes', disLikesCount)
+    })
+
+</script>
+</html>
