@@ -461,6 +461,7 @@ var womensData = [
   displayData(womensData);
 
   function displayData(data){
+    document.querySelector('#parent').innerHTML="";
     data.map((ele, ind)=>{
         let div = document.createElement('div');
         
