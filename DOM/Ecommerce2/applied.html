@@ -61,7 +61,7 @@
   <script>
     //you need to code here
 
-    let jobList = JSON.parse(localStorage.getItem("jobList")) || [];
+    var jobList = JSON.parse(localStorage.getItem("jobList")) || [];
     let bookmarkList = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
     let tbody = document.querySelector('tbody');
@@ -69,7 +69,7 @@
     displayData(jobList);
 
     function displayData(data){
-      tbody.innerHTML="";
+      document.querySelector('tbody').innerHTML="";
       data.map((ele,ind)=>{
         let tr = document.createElement('tr');
 
@@ -107,75 +107,86 @@
 
     let nameSort = document.querySelector('#nameSort');
    
+   // jobList=JSON.parse(localStorage.getItem("jobList")) || [];
     let duplicate = [...jobList];
+    console.log('duplicate',duplicate)
     nameSort.addEventListener('change', function(){
       console.log(nameSort.value)
+      
       if(nameSort.value=='asc'){
-        let sorted = duplicate.sort((a,b)=>{
+        document.querySelector('tbody').innerHTML=null;
+        const sorted = jobList.sort((a,b)=>{
          if(a.name > b.name) return 1;
          if(a.name < b.name) return -1;
          return 0;
         })
-        console.log(sorted)
-        displayData(sorted);
+        console.log('sorted acs',jobList)
+        displayData(jobList);
       }
       else if(nameSort.value == 'dsc'){
-        let sorted = duplicate.sort((a,b)=>{
+        const sorted = jobList.sort((a,b)=>{
           if(a.name > b.name)return -1;
           if(a.name < b.name) return 1;
           return 0;
         })
-        displayData(sorted);
+        console.log('sorted dsc',sorted)
+        displayData(jobList);
       }
       else if(nameSort.value=='byNames'){
-        displayData(jobList)
+        displayData(duplicate)
       }
 
     })
 
 
+    let duplicate1 = [...jobList]
     let salarySort = document.querySelector('#salarySort');
     salarySort.addEventListener('change', function(){
       if(salarySort.value=='asc'){
-        let sorted = duplicate.sort((a,b)=>{
+        let sorted = jobList.sort((a,b)=>{
           return a.salary - b.salary;
         })
-        displayData(sorted);
+        displayData(jobList);
       }
       else if(salarySort.value == 'dsc'){
-        let sorted = duplicate.sort((a,b)=>{
+        let sorted = jobList.sort((a,b)=>{
           return b.salary - a.salary;
         })
-        displayData(sorted);
-      }
-      else{
         displayData(jobList);
+      }
+      else if(salarySort.value == 'bySalary'){
+        displayData(duplicate1);
       }
     } )
 
+    // let filterRole = document.querySelector('#filterRole');
+    // filterRole,addEventListener('change', function(){
+    //     let selectedRole = fi
+    // })
 
+    let roleFilter = [...jobList]
     let filterRole = document.querySelector('#filterRole');
-    filterRole,addEventListener('change', function(){
+    filterRole.addEventListener('change', function(){
       if(filterRole.value == 'FSD'){
-        let filtered = duplicate.filter((ele)=>{
+        let filtered = jobList.filter((ele)=>{
           return ele.role == 'FSD';
         })
         displayData(filtered);
       }
       else  if(filterRole.value == 'backend'){
-        let filtered = duplicate.filter((ele)=>{
+        let filtered = jobList.filter((ele)=>{
           return ele.role == 'Backend';
         })
         displayData(filtered);
       }
      else if(filterRole.value == 'frontend'){
-        let filtered = duplicate.filter((ele)=>{
+        let filtered = jobList.filter((ele)=>{
           return ele.role == 'Frontend';
         })
         displayData(filtered);
       }
       else if(filterRole.value == 'All'){
-        displayData(jobList);
+        displayData(roleFilter);
       }
     })
 
