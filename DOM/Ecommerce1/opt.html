@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #nav,#parent{
+            display: flex;
+            border: 2px solid blue;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #parent{
+            width: 500px;
+            margin:100px auto;
+            text-align: center;
+        }
+        #parent>div{
+            width: 20%;
+            border: 2px solid red;
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <a href="./Cart.html">Cart Page</a>
+        <a href="./Womens.html">Products Page</a>
+        <a href="./Checkout.html">Checkout Page</a>
+    </div>
+    <div id="parent" >
+        <form action="" >
+            <input type="number" placeholder="Enter OTP" id="otp">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+<script>
+
+let form = document.querySelector('form');
+form.addEventListener('submit', varifyOTP)
+     function varifyOTP(e){
+        e.preventDefault();
+            let otp = document.querySelector('#otp');
+            if(otp.value == 1234){
+                alert('Payment Succesfull')
+                window.location.href= './Womens.html'
+            }
+            else{
+                alert('Payment Failed')
+            }
+        }
+</script>
+</html>

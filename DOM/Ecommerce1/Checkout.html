@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #nav,#parent{
+            display: flex;
+            border: 2px solid blue;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #parent{
+            width: 500px;
+            margin:100px auto;
+            text-align: center;
+        }
+        #parent>div{
+            width: 20%;
+            border: 2px solid red;
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <a href="./Cart.html">Cart Page</a>
+        <a href="./Womens.html">Products Page</a>
+    </div>
+    <div id="parent" >
+        <form action="" >
+                <input type="number" placeholder="Enter Card Number" id="card" > <br> <br>
+                <input type="number"  placeholder="Enter CVV" id="cvv" >  <br> <br>
+                <input type="date" placeholder="Enter Expiry Date" id="date">  <br> <br>
+                <input type="text" placeholder="Enter Name" id="name" >  <br> <br>
+                <input type="submit" value="Submit" >  <br> <br>
+        </form>
+    </div>
+</body>
+<script src="./Checkout.js"></script>
+</html>
