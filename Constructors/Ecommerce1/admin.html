@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form >
+        <input type="text" id="name" placeholder="Enter Name of Product"> <br>
+        <input type="text" id="category" placeholder="Enter Category"> <br>
+        <input type="text" id="imgUrl" placeholder="Enter image url"> <br>
+        <input type="text" id="price" placeholder="Enter price of Product"> <br>
+        <select name="" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="unisex">UniSex</option>
+        </select>
+
+
+        <label for="sold">Sold</label>
+        <input type="checkbox" name="sold" id="sold" >
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script>
+    function Products(name, category,imageUrl, price, gender,sold){
+            this.name = name,
+            this.category = category,
+            this.imageUrl = imageUrl,
+            this.price = price,
+            this.gender = gender,
+            this.sold = sold
+    }
+
+    let form = document.querySelector('form');
+    form.addEventListener('submit',addData);
+
+    let productsList = JSON.parse(localStorage.getItem('products'))||[];
+    function addData(e){
+        e.preventDefault();
+        let name = document.querySelector('#name').value;
+        let category = document.querySelector('#category').value;
+        let imageUrl = document.querySelector('#imgUrl').value;
+        let price = document.querySelector('#price').value;
+        let gender = document.querySelector('#gender').value;
+        let sold = document.querySelector('#sold').checked;
+        let product = new Products(name, category, imageUrl, price,gender, sold);
+        productsList.push(product);
+        localStorage.setItem('products',JSON.stringify(productsList))
+        document.querySelector('#name').value=""
+        document.querySelector('#category').value="";
+        document.querySelector('#imgUrl').value="";
+        document.querySelector('#price').value="";
+        document.querySelector('#gender').value="";
+        document.querySelector('#sold').checked=""
+        console.log(product)
+    }
+</script>
+</html>
