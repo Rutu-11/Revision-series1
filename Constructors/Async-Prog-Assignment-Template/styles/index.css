@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+#navbar{
+    display:flex;
+    width: 100%;
+    background-color: blueviolet;
+    color: #fff;
+    padding: 5px 0;
+    justify-content: space-around;
+}
+#navbar a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#slideshow{
+    width : 80%;
+    height: 400px;
+    margin: 20px auto;
+    box-shadow: 2px 2px 2px 2px blueviolet;
+}
+#slideshow img{
+    width: 100%;
+    height: 100%;
+}
+
+#sortDiv{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+#movies{
+    margin-top: 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+#movies div img{
+    width: 100%;
+    height: 300px;
+}

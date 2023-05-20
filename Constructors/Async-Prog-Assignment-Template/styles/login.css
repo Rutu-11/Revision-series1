@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+#navbar{
+    display:flex;
+    width: 100%;
+    background-color: blueviolet;
+    color: #fff;
+    padding: 5px 0;
+    justify-content: space-around;
+}
+#navbar a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#login-form-div{
+    padding: 10px;
+    width: 40%;
+    margin:20px auto;
+    box-shadow: 10px 10px 10px 10px rgb(181, 209, 181);
+}
+#login-form-div form{
+    width: 80%;
+    margin: auto;
+    border: 2px solid red;
+}
+#login-form-div form input{
+    width: 100%;
+    /* margin: auto; */
+    height: 40px;
+    color:blueviolet;
+}
