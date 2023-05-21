@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        #container{
+            width: 60%;
+            margin: auto;
+        }
+        #inputdiv, #category{
+            width: 100%;
+        }
+        #inputdiv input{
+            width: 90%;
+            height: 50px;
+            margin: 20px;
+        }
+        textArea{
+            width: 90%;
+            height: 250px;
+            margin: 20px;
+        }
+        #category input{
+            width: 40%;
+            height: 50px;
+            margin: 20px;
+        }
+        #edit{
+            width: 30%;
+            height: 70px;
+            margin: auto;
+            background-color: blueviolet;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <a href="./main.html">Home Page</a>
+        <a href="./create.html">Create Page</a>
+        <a href="./edit.html">Edit Page</a>
+        <a href="./view.html">View Page</a>
+      </div>
+    <div id="container">
+    <div id="inputdiv">
+        <input type="text" id="title" placeholder="Enter Title">
+
+    </div>
+    <textArea id="content">Write Content...</textArea>
+
+    <div id="category">
+        <input type="text" id="author" placeholder="Enter Author">
+        <input type="text" id="category" placeholder="Enter Category">
+        <input type="text" id="tags" placeholder="Enter Tags">
+    </div>
+
+    <button id="edit">EDIT BLOG</button>
+</div>
+</body>
+<script src="edit.js"></script>
+</html>
